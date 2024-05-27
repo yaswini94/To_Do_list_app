@@ -4,7 +4,7 @@ function TodoItem({ todo, removeTodo }) {
   return (
     <li>
       {todo.text}
-      <button onClick={() => removeTodo(todo.id)}>Delete</button>
+      <button style={{margin: "8px"}} onClick={() => removeTodo(todo.id)}>Delete</button>
     </li>
   );
 }

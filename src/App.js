@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 import TodoList from './TodoList';
 
 function App() {
@@ -15,9 +16,14 @@ function App() {
 
   return (
     <div>
-      <h1>Todo List</h1>
+      <h1 className='Center-text'>Todo List</h1>
+      { todos?.length > 0 ? (
+        <p className='Margin-left'>Here are list of Todo's.</p>
+      ) : (
+        <p className='Margin-left'>No Todo's left.</p>
+      )}
       <TodoList todos={todos} removeTodo={removeTodo} />
-      <input type="text" onKeyDown={e => {
+      <input className='Margin-left' type="text" onKeyDown={e => {
         if (e.key === 'Enter') {
           addTodo(e.target.value);
           e.target.value = ''; // Clear input after adding
