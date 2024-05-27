@@ -14,6 +14,16 @@ function App() {
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
+  const updateTodo = (id, task) => {
+    let updatedTodo = todos.map(todo => {
+      if (todo.id === id) {
+        todo.text = task;
+      }
+      return todo;
+    });
+    setTodos(updatedTodo);
+  };
+
   return (
     <div>
       <h1 className='Center-text'>Todo List</h1>
@@ -22,7 +32,7 @@ function App() {
       ) : (
         <p className='Margin-left'>No Todo's left.</p>
       )}
-      <TodoList todos={todos} removeTodo={removeTodo} />
+      <TodoList todos={todos} removeTodo={removeTodo} updateTodo={updateTodo} />
       <input className='Margin-left' type="text" onKeyDown={e => {
         if (e.key === 'Enter') {
           addTodo(e.target.value);
